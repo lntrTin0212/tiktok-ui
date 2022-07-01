@@ -21,7 +21,11 @@
 .icon + .title, .title + .icon {
     margin-left: 8px;
 }
-
+.icon {
+    display: inline-block;
+    text-align: center;
+    width: 24px;
+}
 .rounded {
     border-radius: 999px;
     box-shadow: 0 2px 8pxrgba(0, 0, 0, 0.06);
@@ -66,4 +70,5 @@
 .large {
     min-width: 140px;
     padding: 14px 16px;
-}
+} 
+
