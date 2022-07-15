@@ -3,7 +3,6 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircle,
     faCircleQuestion,
     faCircleXmark,
     faEarthAsia,
@@ -25,6 +24,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -36,10 +50,15 @@ const MENU_ITEMS = [
         title: 'Keyboard Shortcuts',
     },
 ];
+
 function Header() {
     const [searchResult, SetSearchResult] = useState([]);
     console.log(searchResult);
 
+    // Handle Logic
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem);
+    };
     // useEffect(() => {
     //     setTimeout(() => {
     //         SetSearchResult([1, 2, 3, 4, 4, 5]);
@@ -81,7 +100,7 @@ function Header() {
                 <div className={cx('action')}>
                     <Button text>Upload</Button>
                     <Button primary>Log in</Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
