@@ -1,14 +1,13 @@
-.menu-list{
+.menu-list {
     width: 224px;
-    .menu-item{
+    .menu-item {
         margin-left: 0 !important;
     }
 }
-.menu-popper{
+.menu-popper {
     padding-bottom: 8px;
     margin-top: 0 !important;
 }
-
 
 .menu-item {
     width: 100%;
@@ -17,13 +16,17 @@
     border-radius: 0;
     line-height: 1.8rem;
     padding: 13px 16px;
+
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
     &:hover {
-        background-color: rgba(22,24,35,0.03);
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 
 // Header
-.header{
+.header {
     margin-top: -8px;
     position: relative;
     height: 50px;
@@ -32,7 +35,7 @@
     align-items: center;
 }
 
-.back-btn{
+.back-btn {
     width: 50px;
     height: 100%;
     position: absolute;
@@ -41,6 +44,5 @@
     cursor: pointer;
 }
 
-.header-title{
-
+.header-title {
 }
