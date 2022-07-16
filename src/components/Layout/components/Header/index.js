@@ -1,32 +1,26 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
     faSignOut,
-    faSpinner,
-    faUpload,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Menu from '~/components/Popper/Menu';
 import Button from '~/components/Button';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
+
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -60,7 +54,6 @@ const MENU_ITEMS = [
     },
 ];
 function Header() {
-    const [searchResult, SetSearchResult] = useState([]);
     const currentUser = true;
 
     // Handle Logic
@@ -91,11 +84,7 @@ function Header() {
             separate: true,
         },
     ];
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         SetSearchResult([1, 2, 3, 4, 4, 5]);
-    //     }, 0);
-    // }, []);
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -103,7 +92,8 @@ function Header() {
                     <img src={images.logo} alt="logo" />
                 </div>
 
-                <HeadlessTippy
+                <Search />
+                {/* <HeadlessTippy
                     visible={searchResult.length > 0}
                     interactive
                     render={(attrs) => (
@@ -129,7 +119,7 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </HeadlessTippy>
+                </HeadlessTippy> */}
 
                 <div className={cx('action')}>
                     {currentUser ? (
@@ -137,8 +127,17 @@ function Header() {
                             <Tippy delay={[0, 200]} content="Upload Video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
+                                <button className={cx('action-btn')}>
                                     <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
                                     <InboxIcon />
+                                    <span className={cx('action-span')}>12</span>
                                 </button>
                             </Tippy>
                             {/* <button className={cx('action-btn')}>
