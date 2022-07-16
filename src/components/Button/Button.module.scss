@@ -1,6 +1,7 @@
 .wrapper {
     font-size: 1.6rem;
     font-weight: 700;
+    font-family: 'ProximaNova', sans-serif;
     min-width: 100px;
     padding: 9px 16px;
     border-radius: 4px;
@@ -10,15 +11,16 @@
     cursor: pointer;
 
     + .wrapper {
-         margin-left: 8px;
+        margin-left: 8px;
     }
-    &.disabled{
+    &.disabled {
         pointer-events: none;
         opacity: 0.5;
     }
 }
 
-.icon + .title, .title + .icon {
+.icon + .title,
+.title + .icon {
     margin-left: 8px;
 }
 .icon {
@@ -28,18 +30,18 @@
 }
 .rounded {
     border-radius: 999px;
-    box-shadow: 0 2px 8pxrgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8pxrgba (0, 0, 0, 0.06);
     border-color: rgba(22, 24, 35, 0.12);
     &:hover {
         border-color: rgba(22, 24, 35, 0.2);
-    background-color: rgba(22, 24, 35, 0.03);
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
-.primary{
+.primary {
     background-color: var(--primary);
     color: var(--white);
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 
@@ -52,11 +54,8 @@
     }
 }
 
-
-
-.text{
-
-    &:hover{
+.text {
+    &:hover {
         text-decoration: underline;
     }
 }
@@ -70,5 +69,4 @@
 .large {
     min-width: 140px;
     padding: 14px 16px;
-} 
-
+}

@@ -7,14 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
     faMagnifyingGlass,
-    faMessage,
     faSignOut,
     faSpinner,
     faUpload,
@@ -27,6 +25,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -136,7 +136,9 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload Video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                    <MessageIcon />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                             {/* <button className={cx('action-btn')}>
@@ -151,9 +153,10 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/09e5d2ba7301eac2fbff2548af71aaf0~c5_100x100.jpeg?x-expires=1658062800&x-signature=wZcPJ%2FsYF1esXzkQUT62Ai%2BTGoE%3D"
+                            <Image
+                                src="httvt-0068-giso/09e5d2ba7301eac2fbff2548af71aaf0~c5_100x100.jpeg?x-expires=1658062800&x-signature=wZcPJ%2FsYF1esXzkQUT62Ai%2BTGoE%3D"
                                 className={cx('user-avatar')}
+                                // fallback="https://yt3.ggpht.com/yti/AJo0G0l6-OAdVzCritlTg19dTyMbV9MiBBSGiQ8n2E2cUQ=s88-c-k-c0x00ffffff-no-rj-mo"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
